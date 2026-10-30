@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home | Heber Valley Harps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/harps/">Heber Valley Harps</a>
+  <div class="nav-links"><a href="/harps/" class="active">Home</a><a href="/harps/lessons/">Lessons</a><a href="/harps/ensemble/">Ensemble</a><a href="/harps/swiss-days/">Swiss Days</a><a href="/harps/intro-class/">Intro Class</a><a href="/harps/harps-for-sale/">Harps for Sale</a><a href="/harps/about/">About</a></div>
+</nav>
+<main>
+<style>
+  .hero{background:var(--dark);padding:120px 48px 100px;position:relative;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;z-index:0;}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;opacity:0.18;}
+  .hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+  .hero h1{color:var(--warm-white);margin-bottom:20px;}
+  .hero h1 em{font-style:italic;color:var(--gold-light);}
+  .hero .lead{color:rgba(255,255,255,0.7);margin-bottom:40px;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .home-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+  .home-card{background:var(--warm-white);padding:40px 36px;cursor:pointer;transition:background 0.2s;position:relative;}
+  .home-card:hover{background:#FFF9F2;}
+  .home-card:hover .card-arrow{opacity:1;transform:translateX(0);}
+  .home-card-number{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:var(--gold-pale);line-height:1;margin-bottom:16px;}
+  .card-arrow{position:absolute;bottom:36px;right:36px;color:var(--gold);font-size:20px;opacity:0;transform:translateX(-8px);transition:all 0.2s;}
+  .dates-strip{background:var(--gold-pale);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .dates-strip .section-sm{display:flex;gap:48px;flex-wrap:wrap;align-items:center;}
+  .dates-strip-label{font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
+  .date-item{display:flex;flex-direction:column;}
+  .date-item .date{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--dark);}
+  .date-item .label{font-size:13px;color:var(--muted);}
+  .photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;}
+  .photo-strip-item{aspect-ratio:4/3;overflow:hidden;}
+  .photo-strip-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s;}
+  .photo-strip-item:hover img{transform:scale(1.03);}
+  @media(max-width:800px){.home-grid,.photo-strip{grid-template-columns:1fr;}}
+</style>
+
+<div class="hero">
+  <div class="hero-bg"><img src="/assets/img/symphony-easter-concert.jpg" alt="Heber Valley Harp Symphony performing at the Interfaith Easter Concert"></div>
+  <div class="hero-inner">
+    <p class="eyebrow" style="color:var(--gold)">Heber Valley, Utah</p>
+    <h1>A studio where<br><em>young harpists</em><br>find their voice.</h1>
+    <p class="lead">Private lessons, ensemble performance, and a community built around the beauty of the harp — directed by Alissa Amundson.</p>
+    <div class="hero-actions mt-32">
+      <a href="/harps/lessons/" class="btn btn-gold">Start Lessons</a>
+      <a href="/harps/ensemble/" class="btn btn-outline" style="border-color:rgba(255,255,255,0.35);color:rgba(255,255,255,0.8)">Join the Ensemble</a>
+    </div>
+  </div>
+</div>
+
+<div class="dates-strip">
+  <div class="section-sm">
+    <span class="dates-strip-label">Upcoming dates</span>
+    <div class="date-item"><span class="date">5 Sept</span><span class="label">Swiss Days Concert</span></div>
+    <div class="date-item"><span class="date">14 Sept</span><span class="label">Summer Solos Recital</span></div>
+    <div class="date-item"><span class="date">29 Sept / 24 Oct</span><span class="label">Masterclass — Dr. McQuay</span></div>
+    <div class="date-item"><span class="date">28 Nov</span><span class="label">Midway Tree Lighting</span></div>
+    <div class="date-item"><span class="date">1 Dec</span><span class="label">Studio Concert</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <p class="eyebrow">What we offer</p>
+  <div class="home-grid">
+    <a href="/harps/lessons/" class="home-card" style="text-decoration:none">
+      <div class="home-card-number">01</div>
+      <h3>Private Lessons</h3>
+      <p style="font-size:14px;margin-top:8px">30, 45, or 60-minute sessions. Summer punch cards available. Scheduling via Google Calendar.</p>
+      <span class="card-arrow">→</span>
+    </a>
+    <a href="/harps/ensemble/" class="home-card" style="text-decoration:none">
+      <div class="home-card-number">02</div>
+      <h3>Harp Ensemble</h3>
+      <p style="font-size:14px;margin-top:8px">The Heber Valley Harp Symphony performs at Swiss Days, the Midway Tree Lighting, and the annual studio concert.</p>
+      <span class="card-arrow">→</span>
+    </a>
+    <a href="/harps/intro-class/" class="home-card" style="text-decoration:none">
+      <div class="home-card-number">03</div>
+      <h3>Intro to Harp <span class="tag-new">New</span></h3>
+      <p style="font-size:14px;margin-top:8px">A group class for ages 8–11 with some music background. Harpsicle rental available. Mondays at 2pm.</p>
+      <span class="card-arrow">→</span>
+    </a>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0">
+  <div style="background:var(--warm-white);border:1px solid var(--border);overflow:hidden;display:grid;grid-template-columns:1fr 1fr">
+    <div style="padding:48px">
+      <p class="eyebrow">Director</p>
+      <h2>Alissa Amundson</h2>
+      <div class="divider"></div>
+      <p>Director of the Heber Valley Harp Symphony, sub harpist with the Utah Symphony, and Principal Harp Mentor for the Utah Youth Symphony. Alissa brings professional performance experience and a deep love for teaching to every student.</p>
+      <a href="/harps/about/" class="btn btn-outline mt-24" style="display:inline-block">Full bio</a>
+    </div>
+    <div style="overflow:hidden;min-height:320px">
+      <img src="/assets/img/alissa-playing.jpg" alt="Alissa Amundson playing the harp" style="width:100%;height:100%;object-fit:cover;object-position:center top">
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0;padding-bottom:0">
+  <div class="photo-strip">
+    <div class="photo-strip-item"><img src="/assets/img/symphony-after-concert.jpg" alt="Heber Valley Harp Symphony ensemble after a recent concert"></div>
+    <div class="photo-strip-item"><img src="/assets/img/uys-berlioz-rehearsal.jpg" alt="Rehearsal for the Utah Youth Symphony Berlioz Symphonie Fantastique"></div>
+    <div class="photo-strip-item"><img src="/assets/img/abravanel-hall.jpg" alt="Performing at Abravanel Hall with the Utah Youth Symphony"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div><p class="logo">Heber Valley Harps</p><p style="margin-top:8px">Directed by Alissa Amundson · Heber Valley, Utah</p></div>
+    <div class="footer-col">
+      <a href="mailto:alissa.s.amundson@gmail.com">alissa.s.amundson@gmail.com</a>
+      <a href="https://instagram.com/alissaqueenofharps" target="_blank">@alissaqueenofharps</a>
+      <a href="https://calendar.app.google/Hy3uCax1gKiBSfMD9" target="_blank">Schedule a lesson ↗</a>
+    </div>
+  </div>
+</footer>
+</main>
+</body>
+</html>
