@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alissa Amundson | Partner Experience Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1a1a2e;
+      background: #ffffff;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Color Tokens ── */
+    :root {
+      --navy:   #0f1f3d;
+      --navy2:  #1a3560;
+      --teal:   #0d9488;
+      --teal-lt:#e6f7f5;
+      --gold:   #d4a843;
+      --mid:    #4a5568;
+      --light:  #f7f9fc;
+      --border: #e2e8f0;
+      --white:  #ffffff;
+    }
+
+    /* ── Utility ── */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .section { padding: 80px 0; }
+    .section--alt { background: var(--light); }
+    .eyebrow {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem;
+    }
+    .h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--navy); line-height: 1.2; margin-bottom: 1rem;
+    }
+    .lead { font-size: 1.1rem; color: var(--mid); max-width: 640px; }
+    .tag {
+      display: inline-block; background: var(--teal-lt); color: var(--teal);
+      font-size: 0.75rem; font-weight: 600; padding: 3px 10px;
+      border-radius: 20px; margin: 3px 2px;
+    }
+    .btn {
+      display: inline-block; padding: 12px 28px; border-radius: 6px;
+      font-weight: 600; font-size: 0.95rem; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn--primary {
+      background: var(--teal); color: var(--white);
+    }
+    .btn--primary:hover { background: #0b7a70; transform: translateY(-1px); }
+    .btn--outline {
+      border: 2px solid var(--navy); color: var(--navy);
+    }
+    .btn--outline:hover { background: var(--navy); color: var(--white); }
+    .btn--ghost {
+      border: 2px solid rgba(255,255,255,0.6); color: var(--white);
+    }
+    .btn--ghost:hover { background: rgba(255,255,255,0.15); }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--navy); padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px;
+    }
+    .nav__brand {
+      font-weight: 700; font-size: 1rem; color: var(--white); letter-spacing: 0.02em;
+    }
+    .nav__links { display: flex; gap: 2rem; }
+    .nav__links a {
+      color: rgba(255,255,255,0.75); font-size: 0.875rem; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .nav__links a:hover { color: var(--white); }
+    .nav__cta {
+      background: var(--teal); color: var(--white);
+      padding: 7px 18px; border-radius: 5px;
+      font-size: 0.85rem; font-weight: 600;
+      transition: background 0.15s;
+    }
+    .nav__cta:hover { background: #0b7a70; }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 60%, #1d4a6e 100%);
+      padding: 90px 0 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(13,148,136,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero__inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 4rem; align-items: center;
+    }
+    .hero__badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(13,148,136,0.2); border: 1px solid rgba(13,148,136,0.4);
+      color: #5eead4; font-size: 0.75rem; font-weight: 600;
+      padding: 5px 14px; border-radius: 20px; margin-bottom: 1.5rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .hero__badge::before { content: '●'; font-size: 0.5rem; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      color: var(--white); line-height: 1.15; margin-bottom: 1.25rem;
+    }
+    .hero h1 span { color: #5eead4; }
+    .hero__sub {
+      font-size: 1.15rem; color: rgba(255,255,255,0.8);
+      max-width: 560px; margin-bottom: 2rem; line-height: 1.7;
+    }
+    .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero__photo {
+      width: 220px; height: 260px;
+      border-radius: 12px; overflow: hidden;
+      border: 3px solid rgba(255,255,255,0.15);
+      flex-shrink: 0;
+      background: rgba(255,255,255,0.07);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.3); font-size: 0.8rem; text-align: center;
+      padding: 1rem;
+    }
+    .hero__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ── Hire-me banner ── */
+    .hire-banner {
+      background: var(--teal); padding: 18px 2rem;
+      text-align: center;
+    }
+    .hire-banner p {
+      font-size: 1.05rem; color: var(--white); font-weight: 500;
+    }
+    .hire-banner strong { font-weight: 700; }
+
+    /* ── Problem/Position section ── */
+    .position__grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2rem; margin-top: 3rem;
+    }
+    .position__card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 2rem;
+      border-left: 4px solid var(--teal);
+      transition: box-shadow 0.2s;
+    }
+    .position__card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+    .position__card h3 {
+      font-size: 1.1rem; font-weight: 700; color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+    .position__card p { font-size: 0.95rem; color: var(--mid); }
+    .position__card .icon {
+      font-size: 1.8rem; margin-bottom: 1rem;
+    }
+
+    /* ── Metrics ── */
+    .metrics {
+      background: var(--navy);
+      padding: 60px 0;
+    }
+    .metrics__grid {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem; text-align: center;
+    }
+    .metric__num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; font-weight: 700;
+      color: #5eead4; line-height: 1;
+    }
+    .metric__arrow {
+      font-size: 1.4rem; color: var(--gold); margin: 4px 0;
+    }
+    .metric__label {
+      font-size: 0.8rem; color: rgba(255,255,255,0.65);
+      line-height: 1.4; margin-top: 6px;
+    }
+    .metric__context {
+      font-size: 0.7rem; color: rgba(255,255,255,0.4);
+      margin-top: 4px; font-style: italic;
+    }
+    .metric__divider {
+      width: 1px; background: rgba(255,255,255,0.1);
+    }
+
+    /* ── How I Work ── */
+    .pillars { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .pillar {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.75rem 1.5rem;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .pillar:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.09); }
+    .pillar__icon {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: var(--teal-lt); margin: 0 auto 1rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+    }
+    .pillar h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    .pillar p { font-size: 0.875rem; color: var(--mid); }
+
+    /* ── In Action ── */
+    .stories { display: flex; flex-direction: column; gap: 3rem; margin-top: 3rem; }
+    .story {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center;
+    }
+    .story--flip { direction: rtl; }
+    .story--flip > * { direction: ltr; }
+    .story__img {
+      border-radius: 10px; overflow: hidden;
+      aspect-ratio: 4/3; background: var(--light);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--mid); font-size: 0.85rem; text-align: center;
+      padding: 1.5rem;
+    }
+    .story__img img { width: 100%; height: 100%; object-fit: cover; }
+    .story__result {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--teal-lt); color: var(--teal);
+      font-size: 0.8rem; font-weight: 700;
+      padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem;
+    }
+    .story__result::before { content: '↑'; }
+    .story h3 { font-size: 1.3rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
+    .story p { color: var(--mid); font-size: 0.95rem; margin-bottom: 1rem; }
+    .story__quote {
+      background: var(--light); border-left: 3px solid var(--teal);
+      padding: 1rem 1.25rem; border-radius: 0 8px 8px 0;
+      font-style: italic; font-size: 0.9rem; color: var(--mid);
+      margin-top: 1rem;
+    }
+
+    /* ── Educator Advantage ── */
+    .educator {
+      background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+      padding: 80px 0;
+    }
+    .educator__inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+    }
+    .educator h2 { color: var(--white); margin-bottom: 1rem; }
+    .educator .lead { color: rgba(255,255,255,0.75); }
+    .educator__points { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+    .edu-point {
+      display: flex; gap: 1rem; align-items: flex-start;
+    }
+    .edu-point__icon {
+      width: 36px; height: 36px; background: rgba(13,148,136,0.25);
+      border-radius: 8px; display: flex; align-items: center;
+      justify-content: center; font-size: 1rem; flex-shrink: 0;
+    }
+    .edu-point h4 { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 2px; }
+    .edu-point p { font-size: 0.85rem; color: rgba(255,255,255,0.65); }
+    .educator__callout {
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px; padding: 2rem;
+    }
+    .educator__callout blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; color: var(--white);
+      line-height: 1.5; margin-bottom: 1rem;
+    }
+    .educator__callout cite {
+      font-size: 0.8rem; color: rgba(255,255,255,0.5);
+      font-style: normal;
+    }
+
+    /* ── Social Proof ── */
+    .proof__grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    @media (max-width: 900px) {
+      .proof__grid { grid-template-columns: 1fr 1fr; }
+    }
+    .proof__card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.75rem;
+    }
+    .proof__card p {
+      font-style: italic; font-size: 0.95rem; color: var(--mid);
+      margin-bottom: 1rem; line-height: 1.7;
+    }
+    .proof__card .attr {
+      font-size: 0.8rem; font-weight: 600; color: var(--navy);
+    }
+    .stars { color: var(--gold); font-size: 0.8rem; margin-bottom: 0.75rem; }
+
+    /* ── Work Samples ── */
+    .samples__grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .sample__card {
+      border: 1px solid var(--border); border-radius: 10px; overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .sample__card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+    .sample__thumb {
+      height: 160px; background: var(--light);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--mid); font-size: 0.8rem; text-align: center;
+      padding: 1rem; font-weight: 500;
+    }
+    .sample__body { padding: 1.25rem; }
+    .sample__body h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+    .sample__body p { font-size: 0.8rem; color: var(--mid); }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--teal); padding: 80px 0; text-align: center;
+    }
+    .cta-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--white); margin-bottom: 1rem;
+    }
+    .cta-section p {
+      font-size: 1.1rem; color: rgba(255,255,255,0.85);
+      max-width: 560px; margin: 0 auto 2rem;
+    }
+    .cta-section .btn--white {
+      background: var(--white); color: var(--teal); font-weight: 700;
+    }
+    .cta-section .btn--white:hover { background: #f0fdfc; transform: translateY(-1px); }
+
+    /* ── About ── */
+    .about__inner {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 3rem; align-items: start;
+    }
+    .about__photo {
+      width: 200px; height: 240px; border-radius: 10px; overflow: hidden;
+      background: var(--light); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--mid); font-size: 0.8rem; text-align: center; padding: 1rem;
+    }
+    .about__photo img { width: 100%; height: 100%; object-fit: cover; }
+    .about__text p { color: var(--mid); margin-bottom: 1rem; font-size: 0.975rem; }
+    .about__skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy); padding: 2rem;
+      text-align: center;
+      color: rgba(255,255,255,0.45); font-size: 0.8rem;
+    }
+    footer a { color: rgba(255,255,255,0.6); }
+    footer a:hover { color: var(--white); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero__inner { grid-template-columns: 1fr; }
+      .hero__photo { display: none; }
+      .metrics__grid { grid-template-columns: repeat(3,1fr); }
+      .pillars { grid-template-columns: repeat(2,1fr); }
+      .story, .story--flip { grid-template-columns: 1fr; direction: ltr; }
+      .educator__inner { grid-template-columns: 1fr; }
+      .proof__grid { grid-template-columns: 1fr; }
+      .samples__grid { grid-template-columns: 1fr 1fr; }
+      .position__grid { grid-template-columns: 1fr; }
+      .about__inner { grid-template-columns: 1fr; }
+      .nav__links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .metrics__grid { grid-template-columns: repeat(2,1fr); }
+      .pillars { grid-template-columns: 1fr; }
+      .samples__grid { grid-template-columns: 1fr; }
+      .metric__divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav>
+  <a href="/" class="nav__brand">Alissa Amundson</a>
+  <div class="nav__links">
+    <a href="#position">Why Hire Me</a>
+    <a href="#results">Results</a>
+    <a href="#how">How I Work</a>
+    <a href="#work">Work Samples</a>
+    <a href="#about">About</a>
+  </div>
+  <a href="mailto:alissa.s.amundson@gmail.com" class="nav__cta">Let's Talk</a>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero__inner">
+    <div>
+      <div class="hero__badge">Partner Experience Leader</div>
+      <h1>
+        I build partner programs<br />
+        that partners <span>choose to champion.</span>
+      </h1>
+      <p class="hero__sub">
+        Companies hire me when they need partners to love doing business with them —
+        whether you're building from zero or fixing a program that's stalling.
+        I connect the dots between partner experience, internal alignment, and revenue.
+      </p>
+      <div class="hero__actions">
+        <a href="mailto:alissa.s.amundson@gmail.com" class="btn btn--primary">Let's Build Something →</a>
+        <a href="#results" class="btn btn--ghost">See My Results</a>
+      </div>
+    </div>
+    <div class="hero__photo">
+      <img src="/assets/img/pro/headshot.jpg" alt="Alissa Amundson" />
+    </div>
+  </div>
+</section>
+
+<!-- ── Hire-me Banner ── -->
+<div class="hire-banner">
+  <p>
+    <strong>"Partners don't just join my programs.</strong>
+    When I leave a company, they follow me — and ask where I landed."
+  </p>
+</div>
+
+<!-- ── Position ── -->
+<section class="section" id="position">
+  <div class="container">
+    <div class="eyebrow">Who I'm the right fit for</div>
+    <h2 class="h2">You need more than a program.<br/>You need partners who are all in.</h2>
+    <p class="lead">
+      Most partner programs fail not because of bad structure — but because the experience of
+      being a partner is frustrating, unclear, or forgettable. I fix that.
+    </p>
+    <div class="position__grid">
+      <div class="position__card">
+        <div class="icon">🏗️</div>
+        <h3>You're building from zero (or near zero)</h3>
+        <p>
+          You've committed to a partner motion but don't have the program, the tools, the
+          internal alignment, or the enablement to make it real. I've done this multiple times —
+          at Instructure, Weave, LumApps, and as a consultant. I know exactly where to start
+          and how to show early wins that keep executives invested.
+        </p>
+      </div>
+      <div class="position__card">
+        <div class="icon">🔧</div>
+        <h3>You started something and it's stalling</h3>
+        <p>
+          Partners aren't engaging. CAMs aren't driving deals through the channel. Internal
+          teams see partners as a distraction, not a multiplier. I diagnose where the
+          experience is breaking down — partner-facing AND internally — and rebuild the
+          connective tissue that makes it work.
+        </p>
+      </div>
+      <div class="position__card">
+        <div class="icon">🌎</div>
+        <h3>You need to reach markets you can't reach directly</h3>
+        <p>
+          Whether it's language, geography, or industry relationships you don't have,
+          partners are how you scale beyond your direct team. I build programs that give
+          partners genuine reasons to represent you first — not as an afterthought.
+        </p>
+      </div>
+      <div class="position__card">
+        <div class="icon">🤝</div>
+        <h3>Your internal teams aren't bought in</h3>
+        <p>
+          Sales sees partners as competition. CS sees them as a liability. Marketing doesn't
+          know what to do with them. I've solved this repeatedly — by making every internal
+          stakeholder a winner through the partner program, not just the partners themselves.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Metrics ── -->
+<section class="metrics" id="results">
+  <div class="container">
+    <div style="text-align:center; margin-bottom: 2.5rem;">
+      <div class="eyebrow" style="color:#5eead4;">Results that move the needle</div>
+      <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.6rem,3vw,2.2rem); color:#fff;">
+        Fast impact. Measurable outcomes.
+      </h2>
+    </div>
+    <div class="metrics__grid">
+      <div>
+        <div class="metric__num">$300K</div>
+        <div class="metric__arrow">↓ ↓ ↓</div>
+        <div class="metric__num">$5M</div>
+        <div class="metric__label">Partner-attributed<br/>ARR growth</div>
+        <div class="metric__context">18-month cycle · Instructure</div>
+      </div>
+      <div class="metric__divider"></div>
+      <div>
+        <div class="metric__num">30%</div>
+        <div class="metric__arrow">→</div>
+        <div class="metric__num" style="font-size:2rem;">85%</div>
+        <div class="metric__label">Partner engagement<br/>rate</div>
+        <div class="metric__context">3 months · Instructure</div>
+      </div>
+      <div class="metric__divider"></div>
+      <div>
+        <div class="metric__num">+40%</div>
+        <div class="metric__label" style="margin-top:10px;">Partner-generated<br/>pipeline increase</div>
+        <div class="metric__context">Instructure channel program</div>
+      </div>
+      <div class="metric__divider"></div>
+      <div>
+        <div class="metric__num">+20%</div>
+        <div class="metric__label" style="margin-top:10px;">Partner referral<br/>close rate increase</div>
+        <div class="metric__context">First 2 months · Weave</div>
+      </div>
+      <div class="metric__divider"></div>
+      <div>
+        <div class="metric__num">5→15%</div>
+        <div class="metric__label" style="margin-top:10px;">SDR qualification<br/>rate improvement</div>
+        <div class="metric__context">Within 30 days · LumApps</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── How I Work ── -->
+<section class="section section--alt" id="how">
+  <div class="container">
+    <div class="eyebrow">My approach</div>
+    <h2 class="h2">Four things that make partner programs actually work</h2>
+    <p class="lead">
+      The programs that fail usually fail for the same reasons.
+      Here's what I focus on instead.
+    </p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar__icon">💰</div>
+        <h3>Build for revenue, not just relationships</h3>
+        <p>
+          Happy partners are great. Partners who understand exactly how to generate revenue
+          through you — and do — are better. I connect partner activities directly to revenue
+          outcomes and make that math visible.
+        </p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__icon">🏢</div>
+        <h3>Make internal teams your first partners</h3>
+        <p>
+          Channel programs don't fail because of bad partners. They fail because Sales,
+          CS, and Marketing aren't bought in. I make sure every internal team has a reason
+          to want the partner program to succeed — and I tie it to their KPIs.
+        </p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__icon">✨</div>
+        <h3>Design the experience, not just the program</h3>
+        <p>
+          A program is a structure on paper. An experience is how a partner feels about
+          doing business with you. When the experience is smooth, lucrative, and worth
+          championing, partners promote you before your competitors — every time.
+        </p>
+      </div>
+      <div class="pillar">
+        <div class="pillar__icon">⚡</div>
+        <h3>Deliver fast, then build for scale</h3>
+        <p>
+          I don't spend six months planning before showing results. I identify quick wins,
+          deliver them, and use that momentum to build the infrastructure for long-term
+          scale. Executives stay invested when they see early proof.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── In Action ── -->
+<section class="section" id="in-action">
+  <div class="container">
+    <div class="eyebrow">Skills in action</div>
+    <h2 class="h2">Real programs. Real results.</h2>
+    <div class="stories">
+
+      <!-- Story 1 -->
+      <div class="story">
+        <div class="story__img">
+          <img src="/assets/img/pro/partnerday.jpg" alt="Partner Day" />
+        </div>
+        <div>
+          <div class="story__result">$300K to $5M in 18 months</div>
+          <h3>Built Instructure's Channel Program from the Ground Up</h3>
+          <p>
+            When I joined the channel team, Instructure had partners but no real program — no
+            clear tiers, no lifecycle, no enablement, and no way for partners to predict their
+            own success. I built it: the reseller program structure, the partner journey, the PRM,
+            the CAM playbook, and a Diamond Services tier that created a new revenue stream
+            for partners (and eliminated a client-service gap for Instructure).
+          </p>
+          <p>
+            The key insight: I mapped success for the partner <em>and</em> for the CAM.
+            When both sides have a clear path to their goals, the program runs itself.
+          </p>
+          <div class="story__quote">
+            "I am more excited to do business as Instructure's partner."<br/>
+            <span style="font-size:0.8rem; font-style:normal;">— Partner feedback following Partner Day event</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story 2 -->
+      <div class="story story--flip">
+        <div class="story__img">
+          <img src="/assets/img/pro/crossteam.jpg" alt="Cross-team collaboration" />
+        </div>
+        <div>
+          <div class="story__result">Partner engagement 30% → 85% in 3 months</div>
+          <h3>Turned Internal Skeptics into Program Champions</h3>
+          <p>
+            The Diamond Services program required CS, Legal, Sales, IT, and Product to all move
+            together. Every team had objections. Sales feared cannibalization. CS worried about
+            quality. Legal wanted access controls. I addressed each on their own terms — building
+            the case using their metrics, not mine.
+          </p>
+          <p>
+            The SafeGuard model — where a partner delivers implementation but Instructure certifies
+            quality — turned CS from resistor to advocate. It gave them oversight, gave partners
+            confidence, and gave clients a reason to trust the channel.
+          </p>
+          <div class="story__quote">
+            "Well, that sounds like a no-brainer."<br/>
+            <span style="font-size:0.8rem; font-style:normal;">— Instructure CEO, following executive committee presentation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Story 3 -->
+      <div class="story">
+        <div class="story__img">
+          <img src="/assets/img/pro/presentation.jpg" alt="Presenting at partner event" />
+        </div>
+        <div>
+          <div class="story__result">+20% partner referral close rate, first 2 months</div>
+          <h3>Immediate Impact at Weave — Program Rebuilt in Weeks</h3>
+          <p>
+            At Weave, I built two partner portals, overhauled the partner journey, stood up a
+            complete enablement structure for a strategic co-sell/resell partner, and taught the
+            sales team how to sell alongside partners — all within four months.
+          </p>
+          <p>
+            The results were immediate and measurable. Net partner referrals increased within
+            weeks. The close rate for partner-sourced deals jumped 20%.
+          </p>
+          <div style="margin-top:1rem;">
+            <span class="tag">SI Partners</span>
+            <span class="tag">VAR</span>
+            <span class="tag">Agency</span>
+            <span class="tag">Strategic Co-Sell</span>
+            <span class="tag">Reseller</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Educator Advantage ── -->
+<section class="educator" id="educator">
+  <div class="container">
+    <div class="educator__inner">
+      <div>
+        <div class="eyebrow" style="color:#5eead4;">The educator advantage</div>
+        <h2 class="h2">Why hiring a former teacher is the underused supermove in partner leadership</h2>
+        <p class="lead">
+          Ten years in a classroom taught me things about behavior change, communication,
+          and making complex things work that most channel leaders never learn.
+        </p>
+        <div class="educator__points">
+          <div class="edu-point">
+            <div class="edu-point__icon">🎯</div>
+            <div>
+              <h4>Design for behavior change, not just information transfer</h4>
+              <p>Enablement that informs is not the same as enablement that changes what partners do. I build for the second one.</p>
+            </div>
+          </div>
+          <div class="edu-point">
+            <div class="edu-point__icon">🔄</div>
+            <div>
+              <h4>Fail fast with minimal ego</h4>
+              <p>Teachers iterate constantly. What didn't land today gets redesigned for tomorrow. No attachment to the plan — only to the outcome.</p>
+            </div>
+          </div>
+          <div class="edu-point">
+            <div class="edu-point__icon">🌀</div>
+            <div>
+              <h4>Navigate difficult personalities and conversations</h4>
+              <p>Ten years of classroom management means I can read a room, de-escalate friction, and move people who don't want to be moved.</p>
+            </div>
+          </div>
+          <div class="edu-point">
+            <div class="edu-point__icon">✂️</div>
+            <div>
+              <h4>Make magic with minimal resources</h4>
+              <p>Partner programs are chronically under-resourced. Teachers build transformational experiences with a whiteboard and determination.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="educator__callout">
+        <blockquote>
+          "Hiring former teachers is the underused supermove for corporate recruiters.
+          We plan with the end result in mind. We execute under constraints.
+          We never stop iterating."
+        </blockquote>
+        <cite>— Alissa Amundson, on the transferable power of teaching</cite>
+        <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.15);">
+          <div style="font-size:0.8rem; color:rgba(255,255,255,0.5); margin-bottom:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.08em;">Education</div>
+          <div style="color:rgba(255,255,255,0.8); font-size:0.9rem; line-height:1.8;">
+            M.Ed. — University of Southern California<br/>
+            B.A. History — Brigham Young University<br/>
+            B.A. Russian Literature & Language — BYU
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Social Proof ── -->
+<section class="section section--alt" id="proof">
+  <div class="container">
+    <div class="eyebrow">What people say</div>
+    <h2 class="h2">Partners remember. Leaders reach back out.</h2>
+    <div class="proof__grid">
+
+      <div class="proof__card">
+        <div class="stars">★★★★★</div>
+        <p>
+          "She truly understands how partnerships can become business opportunities for both the vendor and the local partners — she gets both worlds. Her ability to align business needs with strategic execution was truly impressive."
+        </p>
+        <div class="attr">Miguel Angel Rodriguez Martinez · Revenue Director, Multi-Market<br/><span style="font-weight:400; color:var(--mid);">Diamond Services Partner, Instructure</span></div>
+      </div>
+
+      <div class="proof__card">
+        <div class="stars">★★★★★</div>
+        <p>
+          "I had the pleasure of hiring Alissa to help build a new channel sales program from the ground up. She is a rockstar and was a critical component of our success. I've seen Alissa demonstrate these strengths time and time again. I would jump at the chance to hire Alissa again in the future."
+        </p>
+        <div class="attr">Kurt W. Showalter · SaaS Business Development Leader<br/><span style="font-weight:400; color:var(--mid);">Hired Alissa to build channel sales program</span></div>
+      </div>
+
+      <div class="proof__card">
+        <div class="stars">★★★★★</div>
+        <p>
+          "With little to no resources she has built a functioning channel program, created countless enablement resources, trained internal sellers, external users, channel partners, and leaders globally. If you need someone who embodies proactivity, Alissa will not let you down."
+        </p>
+        <div class="attr">Brett Childs · Revenue Enablement Leader<br/><span style="font-weight:400; color:var(--mid);">Colleague, Instructure</span></div>
+      </div>
+
+      <div class="proof__card">
+        <div class="stars">★★★★★</div>
+        <p>
+          "Alissa has a rare ability to turn big-picture vision into actionable, scalable programs. Her work on Channel Reseller Tiers, partner enablement, and the PRM platform directly supported our marketing efforts and helped drive partner engagement. She's incredibly collaborative, data-driven, and always focused on delivering value — for both partners and internal teams."
+        </p>
+        <div class="attr">Paul Bacanu · Global Marketing | Technology Advocate<br/><span style="font-weight:400; color:var(--mid);">Channel Marketing Manager, Instructure</span></div>
+      </div>
+
+      <div class="proof__card">
+        <div class="stars">★★★★★</div>
+        <p>
+          "The mix of her positive attitude, creative problem-solving, constant partner focus and get-it-done mindset is an extremely powerful asset for any team she is a part of. There is no such thing as a failed experiment — only experiments with unexpected outcomes."
+        </p>
+        <div class="attr">Manish Sharma · CRO &amp; Revenue Leader<br/><span style="font-weight:400; color:var(--mid);">Worked directly with Alissa, Instructure</span></div>
+      </div>
+
+      <div class="proof__card">
+        <div class="stars">★★★★★</div>
+        <p>
+          "She is a standout professional in the Channel and Partner Program space. During our onboarding process as one of the first Diamond Services Partners of Instructure, Alissa's leadership and guidance were fundamental. She helped us establish a robust, agile, and mutually beneficial partnership framework that set the tone for long-term collaboration and success."
+        </p>
+        <div class="attr">Miguel Angel Rodriguez Martinez · Revenue Director<br/><span style="font-weight:400; color:var(--mid);">Partner feedback on Diamond Services Program</span></div>
+      </div>
+
+    </div>
+    <div style="text-align:center; margin-top:2rem;">
+      <a href="https://www.linkedin.com/in/alissa-amundson/" target="_blank" class="btn btn--outline">
+        Read all recommendations on LinkedIn →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Work Samples ── -->
+<section class="section" id="work">
+  <div class="container">
+    <div class="eyebrow">Work samples</div>
+    <h2 class="h2">Programs built. Systems designed.</h2>
+    <p class="lead">A selection of programs, frameworks, and tools built across multiple companies and contexts.</p>
+    <div class="samples__grid">
+      <div class="sample__card">
+        <div class="sample__thumb" style="background:#eef2ff;">
+          <!-- Replace with thumbnail image -->
+          <span style="color:#4338ca; font-weight:600;">Diamond Services<br/>Partner Program</span>
+        </div>
+        <div class="sample__body">
+          <h4>Diamond Services Partner Program — Instructure</h4>
+          <p>End-to-end services partner tier: enablement structure, revenue model, QBR framework, SafeGuard certification, and partner restrictions. Presented to and approved by executive committee.</p>
+          <div style="margin-top:0.75rem;">
+            <span class="tag">Program Design</span>
+            <span class="tag">Services</span>
+          </div>
+        </div>
+      </div>
+      <div class="sample__card">
+        <div class="sample__thumb" style="background:#f0fdf4;">
+          <span style="color:#166534; font-weight:600;">Channel Partner<br/>Lifecycle &amp; Tiers</span>
+        </div>
+        <div class="sample__body">
+          <h4>Global Channel Reseller Program — Instructure</h4>
+          <p>Built-from-scratch global program: partner tiers, lifecycle maps, CAM quota model, PRM launch, and incentive structure designed to drive tier progression and territory growth.</p>
+          <div style="margin-top:0.75rem;">
+            <span class="tag">Program Design</span>
+            <span class="tag">Global</span>
+          </div>
+        </div>
+      </div>
+      <div class="sample__card">
+        <div class="sample__thumb" style="background:#fdf4ff;">
+          <span style="color:#7e22ce; font-weight:600;">Partner Enablement<br/>Curriculum Design</span>
+        </div>
+        <div class="sample__body">
+          <h4>LX Design &amp; Enablement Work Samples</h4>
+          <p>Instructional design and learning experience samples: sales certification, product training, channel partner onboarding. Built for partners, internal teams, and professional services teams.</p>
+          <div style="margin-top:0.75rem;">
+            <span class="tag">Enablement</span>
+            <span class="tag">LX Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── About ── -->
+<section class="section section--alt" id="about">
+  <div class="container">
+    <div class="about__inner">
+      <div class="about__photo">
+        <img src="/assets/img/pro/headshot.jpg" alt="Alissa Amundson" />
+      </div>
+      <div class="about__text">
+        <div class="eyebrow">About</div>
+        <h2 class="h2">I help companies become vendors<br/>that partners want to represent.</h2>
+        <p>
+          Over the past six-plus years I've built channel and partner programs across SaaS companies
+          — from Instructure (EdTech) to Weave (HealthTech) to LumApps (IntranetTech) — and as a
+          consultant helping companies replicate what I built at Instructure. Before that, I spent
+          ten years as a classroom educator, department leader, and athletic coach, which turns out
+          to be an exceptional preparation for building partner programs.
+        </p>
+        <p>
+          My sweet spot is companies that are ready to take partners seriously — either building
+          the motion for the first time or repairing one that started strong and stalled. I'm best
+          when I have executive buy-in, a problem worth solving, and the latitude to make internal
+          teams as invested in partner success as the partners themselves.
+        </p>
+        <p>
+          I'm based in Midway, Utah and work fully remote. I'm currently open to Director and VP
+          of Partner Experience, Channel Programs, and Partner Enablement roles at growth-stage
+          and mid-market SaaS companies.
+        </p>
+        <div class="about__skills">
+          <span class="tag">Partner GTM</span>
+          <span class="tag">Channel Programs</span>
+          <span class="tag">Partner Enablement</span>
+          <span class="tag">Partner Experience</span>
+          <span class="tag">Reseller / VAR / SI</span>
+          <span class="tag">ISV &amp; Integration Partners</span>
+          <span class="tag">PRM Management</span>
+          <span class="tag">Instructional Design</span>
+          <span class="tag">Cross-functional Alignment</span>
+          <span class="tag">Salesforce</span>
+          <span class="tag">Global Programs</span>
+          <span class="tag">Executive Presentations</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <h2>Ready to build something partners love?</h2>
+    <p>
+      Whether you're starting from zero or fixing what isn't working —
+      let's talk about what's possible.
+    </p>
+    <a href="mailto:alissa.s.amundson@gmail.com" class="btn btn--white">Get in Touch →</a>
+    &nbsp;&nbsp;
+    <a href="https://www.linkedin.com/in/alissa-amundson/" target="_blank" class="btn btn--ghost">LinkedIn</a>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <p>
+    Alissa Amundson · Partner Experience Leader ·
+    <a href="mailto:alissa.s.amundson@gmail.com">alissa.s.amundson@gmail.com</a> ·
+    865-321-6799 ·
+    <a href="/harps/">Heber Valley Harps</a> ·
+    <a href="/">alissa-amundson.com</a>
+  </p>
+</footer>
+
+</body>
+</html>
